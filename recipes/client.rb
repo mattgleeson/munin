@@ -17,7 +17,11 @@
 # limitations under the License.
 #
 
-munin_servers = search(:node, "role:#{node['munin']['server_role']} AND chef_environment:#{node.chef_environment}")
+if ::Chef::Config[:solo] or node['munin']['server_ip']
+  munin_servers = [{:ipaddress => node['munin']['server_ip'] || node['ipaddress']}]
+else
+  munin_servers = search(:node, "role:#{node['munin']['server_role']} AND chef_environment:#{node.chef_environment}")
+end
 
 package "munin-node"
 

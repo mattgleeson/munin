@@ -42,6 +42,7 @@ Attributes
 * `node['munin']['sysadmin_email']` - default email address for serveradmin in vhost.
 * `node['munin']['server_auth_method']` - the authentication method to use, default is openid. Any other value will use htauth basic with an htpasswd file.
 * `node['munin']['server_role']` - role of the munin server. Default is monitoring.
+* `node['munin']['server_ip']` - IP address of the munin server, skips search.
 * `node['munin']['docroot']` - document root for the server apache vhost. on archlinux, the default is `/srv/http/munin`, or `/var/www/munin` on other platforms.
 * `node['munin']['web_server']` - supports apache or nginx, default is "apache"
 * `node['munin']['max_processes']` - Maximum number of simultaneous Munin-update processes. When not set, munin will use as many as necessary. Default is to use as many as necessary.
